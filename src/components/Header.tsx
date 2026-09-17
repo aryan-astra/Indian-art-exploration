@@ -31,6 +31,9 @@ export function Header({ activeEra }: Props) {
           </a>
 
           <div className="flex items-center gap-4 sm:gap-6">
+            <a href="/" className="caps text-ink-3 transition-colors hover:text-ink">
+              Home
+            </a>
             <div
               className="relative hidden h-5 min-w-[12rem] items-center justify-end overflow-hidden md:flex"
               aria-live="polite"

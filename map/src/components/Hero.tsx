@@ -65,6 +65,12 @@ export function Hero({ onExplore }: { onExplore: () => void }) {
           SANGRAHA
         </a>
         <div className="flex items-center gap-5">
+          <a
+            href="/"
+            className="label-caps text-ink-soft transition-colors duration-300 hover:text-ink"
+          >
+            Home
+          </a>
           <span className="label-caps hidden text-ink-soft sm:block">Interactive atlas · Indian art</span>
           <button
             onClick={onExplore}

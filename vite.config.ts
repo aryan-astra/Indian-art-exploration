@@ -7,8 +7,8 @@ import { defineConfig, type Plugin } from "vite";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Dev-only: serve both pages at the same clean URLs Netlify rewrites to in
-// production (/explore -> index.html, /map -> map.html). Has no effect on builds.
+// Dev-only: serve the sub-pages at the same clean URLs Netlify rewrites to in
+// production (/explore -> explore.html, /map -> map.html). Has no effect on builds.
 function cleanUrls(): Plugin {
   return {
     name: "clean-urls",
@@ -16,7 +16,7 @@ function cleanUrls(): Plugin {
       server.middlewares.use((req, _res, next) => {
         if (req.url) {
           const [pathname, search] = req.url.split("?");
-          if (pathname === "/explore") req.url = `/index.html${search ? `?${search}` : ""}`;
+          if (pathname === "/explore") req.url = `/explore.html${search ? `?${search}` : ""}`;
           else if (pathname === "/map") req.url = `/map.html${search ? `?${search}` : ""}`;
         }
         next();
@@ -36,7 +36,8 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, "index.html"),
+        home: path.resolve(__dirname, "index.html"),
+        explore: path.resolve(__dirname, "explore.html"),
         map: path.resolve(__dirname, "map.html"),
       },
     },
