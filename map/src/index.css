@@ -1,0 +1,93 @@
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/fraunces/wght-italic.css";
+@import "@fontsource-variable/manrope";
+@import "tailwindcss";
+
+@theme {
+  --color-parchment: #f3eee2;
+  --color-parchment-deep: #ece5d2;
+  --color-parchment-deeper: #e5ddc7;
+  --color-ink: #211d15;
+  --color-ink-soft: #5d5544;
+  --color-ink-faint: #8b8270;
+  --color-hairline: #d8cfb8;
+  --color-hairline-strong: #c0b392;
+  --color-terracotta: #a4502e;
+  --color-gold: #b8892e;
+  --color-indigo: #33517e;
+  --font-display: "Fraunces Variable", Georgia, "Times New Roman", serif;
+  --font-sans: "Manrope Variable", "Helvetica Neue", Arial, sans-serif;
+  --shadow-panel: 0 24px 60px -24px rgb(33 29 21 / 0.3), 0 4px 16px -8px rgb(33 29 21 / 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-terracotta);
+  color: var(--color-parchment);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 2px;
+}
+
+.label-caps {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-hairline-strong) transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-hairline-strong);
+  border-radius: 3px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.marker-node {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.marker-node:focus {
+  outline: none;
+}
+.marker-node:focus-visible .marker-ring {
+  stroke: var(--color-ink);
+  stroke-width: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
